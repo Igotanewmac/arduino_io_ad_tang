@@ -3,37 +3,20 @@ Running parser ...
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v'
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_sp\gowin_sp.v'
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v'
-Compiling module 'top'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":247)
+Compiling module 'top'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1086)
 Compiling module 'Gowin_DPB'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v":10)
+Compiling module 'Gowin_SP'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_sp\gowin_sp.v":10)
 Compiling module 'arduino_io_ad'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":9)
-WARN  (EX1998) : Net 'wire_arduino_isfinished' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":264)
-WARN  (EX1998) : Net 'wire_mem_src_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":274)
-WARN  (EX1998) : Net 'wire_mem_src_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":276)
-WARN  (EX1998) : Net 'wire_mem_src_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":278)
-WARN  (EX1998) : Net 'wire_mem_src_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":282)
-WARN  (EX1998) : Net 'wire_mem_src_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":284)
-WARN  (EX1998) : Net 'wire_mem_src_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":286)
-WARN  (EX1998) : Net 'wire_mem_key_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":309)
-WARN  (EX1998) : Net 'wire_mem_key_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":311)
-WARN  (EX1998) : Net 'wire_mem_key_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":313)
-WARN  (EX1998) : Net 'wire_mem_key_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":317)
-WARN  (EX1998) : Net 'wire_mem_key_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":319)
-WARN  (EX1998) : Net 'wire_mem_key_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":321)
-WARN  (EX1998) : Net 'wire_mem_cmd_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":344)
-WARN  (EX1998) : Net 'wire_mem_cmd_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":346)
-WARN  (EX1998) : Net 'wire_mem_cmd_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":348)
-WARN  (EX1998) : Net 'wire_mem_cmd_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":352)
-WARN  (EX1998) : Net 'wire_mem_cmd_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":354)
-WARN  (EX1998) : Net 'wire_mem_cmd_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":356)
-WARN  (EX1998) : Net 'wire_mem_dst_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":380)
-WARN  (EX1998) : Net 'wire_mem_dst_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":382)
-WARN  (EX1998) : Net 'wire_mem_dst_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":384)
-WARN  (EX1998) : Net 'wire_mem_dst_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":388)
-WARN  (EX1998) : Net 'wire_mem_dst_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":390)
-WARN  (EX1998) : Net 'wire_mem_dst_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":392)
+Compiling module 'encryption_engine'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":237)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":438)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":495)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":594)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":746)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":856)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":958)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1030)
 NOTE  (EX0101) : Current top module is "top"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input arduino_execute is unused("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":255)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
