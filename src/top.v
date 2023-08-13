@@ -300,7 +300,6 @@ module encryption_engine (
 
     // command parsing registers
     reg [13:0] reg_int_address_01;
-
     reg [7:0] reg_int_data_01;
 
 
@@ -1359,7 +1358,245 @@ module encryption_engine (
                         end
 
 
+                        // 0x35 bank B = bank A ^ lfsr_single
+                        8'h35 : begin
+                            case (statemachine_command)
+                                // initialise
+                                8'h00 : begin
+                                    reg_int_address_01 <= 14'd0;
+                                    // bank A
+                                    case (reg_bank_select[7:6])
+                                        2'b00 : begin
+                                            mem_src_ce <= 1'b1;
+                                            mem_src_oce <= 1'b1;
+                                        end
+                                        2'b01 : begin
+                                            mem_key_ce <= 1'b1;
+                                            mem_key_oce <= 1'b1;
+                                        end
+                                        2'b10 : begin
+                                            mem_cmd_ce <= 1'b1;
+                                            mem_cmd_oce <= 1'b1;
+                                        end
+                                        2'b11 : begin
+                                            mem_dst_ce <= 1'b1;
+                                            mem_dst_oce <= 1'b1;
+                                        end
+                                    endcase
+                                    // bank B
+                                    case (reg_bank_select[5:4])
+                                        2'b00 : begin
+                                            mem_src_ce <= 1'b1;
+                                            mem_src_wre <= 1'b1;
+                                        end
+                                        2'b01 : begin
+                                            mem_key_ce <= 1'b1;
+                                            mem_key_wre <= 1'b1;
+                                        end
+                                        2'b10 : begin
+                                            mem_cmd_ce <= 1'b1;
+                                            mem_cmd_wre <= 1'b1;
+                                        end
+                                        2'b11 : begin
+                                            mem_dst_ce <= 1'b1;
+                                            mem_dst_wre <= 1'b1;
+                                        end
+                                    endcase
+                                    statemachine_command <= 8'h01;
+                                end
+                                // step lfsr into data register
+                                8'h01 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h02;
+                                end
+                                8'h02 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h03;
+                                end
+                                8'h03 : begin
+                                    reg_int_data_01[0] <= lfsr_single[0];
+                                    statemachine_command <= 8'h04;
+                                end
+                                8'h04 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h05;
+                                end
+                                8'h05 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h06;
+                                end
+                                8'h06 : begin
+                                    reg_int_data_01[1] <= lfsr_single[0];
+                                    statemachine_command <= 8'h07;
+                                end
+                                8'h07 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h08;
+                                end
+                                8'h08 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h09;
+                                end
+                                8'h09 : begin
+                                    reg_int_data_01[2] <= lfsr_single[0];
+                                    statemachine_command <= 8'h0A;
+                                end
+                                8'h0A : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h0B;
+                                end
+                                8'h0B : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h0C;
+                                end
+                                8'h0C : begin
+                                    reg_int_data_01[3] <= lfsr_single[0];
+                                    statemachine_command <= 8'h0D;
+                                end
+                                8'h0D : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h0E;
+                                end
+                                8'h0E : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h0F;
+                                end
+                                8'h0F : begin
+                                    reg_int_data_01[4] <= lfsr_single[0];
+                                    statemachine_command <= 8'h10;
+                                end
+                                8'h10 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h11;
+                                end
+                                8'h11 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h12;
+                                end
+                                8'h12 : begin
+                                    reg_int_data_01[5] <= lfsr_single[0];
+                                    statemachine_command <= 8'h13;
+                                end
+                                8'h13 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h14;
+                                end
+                                8'h14 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h15;
+                                end
+                                8'h15 : begin
+                                    reg_int_data_01[6] <= lfsr_single[0];
+                                    statemachine_command <= 8'h16;
+                                end
+                                8'h16 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h17;
+                                end
+                                8'h17 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_command <= 8'h18;
+                                end
+                                8'h18 : begin
+                                    reg_int_data_01[7] <= lfsr_single[0];
+                                    statemachine_command <= 8'h19;
+                                end
+                                // set all adresses
+                                8'h19 : begin
+                                    mem_cmd_ad <= reg_int_address_01;
+                                    mem_key_ad <= reg_int_address_01;
+                                    mem_cmd_ad <= reg_int_address_01;
+                                    mem_dst_ad <= reg_int_address_01;
+                                    statemachine_command <= 8'h1A;
+                                end
+                                // clock up A
+                                8'h1A : begin
+                                    case (reg_bank_select[7:6])
+                                        2'b00 : mem_src_clk <= 1'b1;
+                                        2'b01 : mem_key_clk <= 1'b1;
+                                        2'b10 : mem_cmd_clk <= 1'b1;
+                                        2'b11 : mem_dst_clk <= 1'b1;
+                                    endcase
+                                    statemachine_command <= 8'h1B;
+                                end
+                                // clock down A
+                                8'h1B : begin
+                                    mem_src_clk <= 1'b0;
+                                    mem_key_clk <= 1'b0;
+                                    mem_cmd_clk <= 1'b0;
+                                    mem_dst_clk <= 1'b0;
+                                    statemachine_command <= 8'h1C;
+                                end
+                                // set din for bank B to bank A ^ lfsr
+                                8'h1C : begin
+                                    case (reg_bank_select[7:4])
+                                        4'b0000 : mem_src_din <= mem_src_dout ^ reg_int_data_01;
+                                        4'b0001 : mem_key_din <= mem_src_dout ^ reg_int_data_01;
+                                        4'b0010 : mem_cmd_din <= mem_src_dout ^ reg_int_data_01;
+                                        4'b0011 : mem_dst_din <= mem_src_dout ^ reg_int_data_01;
+                                        4'b0100 : mem_src_din <= mem_key_dout ^ reg_int_data_01;
+                                        4'b0101 : mem_key_din <= mem_key_dout ^ reg_int_data_01;
+                                        4'b0110 : mem_cmd_din <= mem_key_dout ^ reg_int_data_01;
+                                        4'b0111 : mem_dst_din <= mem_key_dout ^ reg_int_data_01;
+                                        4'b1000 : mem_src_din <= mem_cmd_dout ^ reg_int_data_01;
+                                        4'b1001 : mem_key_din <= mem_cmd_dout ^ reg_int_data_01;
+                                        4'b1010 : mem_cmd_din <= mem_cmd_dout ^ reg_int_data_01;
+                                        4'b1011 : mem_dst_din <= mem_cmd_dout ^ reg_int_data_01;
+                                        4'b1100 : mem_src_din <= mem_dst_dout ^ reg_int_data_01;
+                                        4'b1101 : mem_key_din <= mem_dst_dout ^ reg_int_data_01;
+                                        4'b1110 : mem_cmd_din <= mem_dst_dout ^ reg_int_data_01;
+                                        4'b1111 : mem_dst_din <= mem_dst_dout ^ reg_int_data_01;
+                                    endcase
+                                    statemachine_command <= 8'h1D;
+                                end
+                                // clock up B
+                                8'h1D : begin
+                                    case (reg_bank_select[5:4])
+                                        2'b00 : mem_src_clk <= 1'b1;
+                                        2'b01 : mem_key_clk <= 1'b1;
+                                        2'b10 : mem_cmd_clk <= 1'b1;
+                                        2'b11 : mem_dst_clk <= 1'b1;
+                                    endcase
+                                    statemachine_command <= 8'h1E;
+                                end
+                                // clock down B
+                                8'h1E : begin
+                                    mem_src_clk <= 1'b0;
+                                    mem_key_clk <= 1'b0;
+                                    mem_cmd_clk <= 1'b0;
+                                    mem_cmd_clk <= 1'b0;
+                                    statemachine_command <= 8'h1F;
+                                end
+                                // increment address register
+                                8'h1F : begin
+                                    reg_int_address_01 <= reg_int_address_01 + 1;
+                                    statemachine_command <= 8'h20;
+                                end
+                                // check for loop
+                                8'h20 : begin
+                                    if ( reg_int_address_01 == 14'd0 ) statemachine_command <= 8'h21;
+                                    else statemachine_command <= 8'h01;
+                                end
+                                // finish
+                                8'h21 : begin
+                                    mem_src_ce <= 1'b0;
+                                    mem_src_oce <= 1'b0;
+                                    mem_src_wre <= 1'b0;
+                                    mem_key_ce <= 1'b0;
+                                    mem_key_oce <= 1'b0;
+                                    mem_key_wre <= 1'b0;
+                                    mem_cmd_ce <= 1'b0;
+                                    mem_cmd_oce <= 1'b0;
+                                    mem_cmd_wre <= 1'b0;
+                                    mem_dst_ce <= 1'b0;
+                                    mem_dst_oce <= 1'b0;
+                                    mem_dst_wre <= 1'b0;
+                                    statemachine_program <= 8'hFE;
+                                end
+                                
 
+                            endcase
+                        end
 
 
 

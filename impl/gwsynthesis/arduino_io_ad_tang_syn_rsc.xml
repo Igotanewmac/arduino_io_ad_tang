@@ -6,5 +6,5 @@
     <SubModule name="blockmem_dst" Bsram="8"/>
     <SubModule name="blockmem_ram" Bsram="8"/>
     <SubModule name="myarduino_io_ad" Register="140" Lut="131"/>
-    <SubModule name="my_encryption_engine" Register="207" Lut="832"/>
+    <SubModule name="my_encryption_engine" Register="209" Lut="870"/>
 </Module>

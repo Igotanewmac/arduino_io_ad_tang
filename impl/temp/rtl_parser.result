@@ -1,15 +1,15 @@
 [
  {
   "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-  "InstLine" : 1442,
+  "InstLine" : 1679,
   "InstName" : "top",
   "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-  "ModuleLine" : 1442,
+  "ModuleLine" : 1679,
   "ModuleName" : "top",
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1482,
+    "InstLine" : 1719,
     "InstName" : "blockmem_src",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
     "ModuleLine" : 10,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1517,
+    "InstLine" : 1754,
     "InstName" : "blockmem_key",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
     "ModuleLine" : 10,
@@ -25,7 +25,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1552,
+    "InstLine" : 1789,
     "InstName" : "blockmem_cmd",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
     "ModuleLine" : 10,
@@ -33,7 +33,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1588,
+    "InstLine" : 1825,
     "InstName" : "blockmem_dst",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
     "ModuleLine" : 10,
@@ -41,7 +41,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1620,
+    "InstLine" : 1857,
     "InstName" : "blockmem_ram",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_sp/gowin_sp.v",
     "ModuleLine" : 10,
@@ -49,7 +49,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1652,
+    "InstLine" : 1889,
     "InstName" : "myarduino_io_ad",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
     "ModuleLine" : 9,
@@ -57,7 +57,7 @@
    },
    {
     "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
-    "InstLine" : 1700,
+    "InstLine" : 1937,
     "InstName" : "my_encryption_engine",
     "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
     "ModuleLine" : 237,
