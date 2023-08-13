@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top">
+    <SubModule name="blockmem_src" Bsram="8"/>
+    <SubModule name="blockmem_key" Bsram="8"/>
+    <SubModule name="blockmem_cmd" Bsram="8"/>
+    <SubModule name="blockmem_dst" Bsram="8"/>
+    <SubModule name="myarduino_io_ad" Register="140" Lut="133"/>
+</Module>

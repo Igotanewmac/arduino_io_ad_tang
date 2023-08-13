@@ -1,0 +1,24 @@
+{
+ "Files" : [
+  {
+   "Path" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_sp/gowin_sp.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

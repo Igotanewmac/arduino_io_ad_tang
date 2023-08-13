@@ -1,0 +1,54 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v'
+Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_sp\gowin_sp.v'
+Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v'
+Compiling module 'top'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":247)
+Compiling module 'Gowin_DPB'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v":10)
+Compiling module 'arduino_io_ad'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":9)
+WARN  (EX1998) : Net 'wire_arduino_isfinished' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":264)
+WARN  (EX1998) : Net 'wire_mem_src_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":274)
+WARN  (EX1998) : Net 'wire_mem_src_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":276)
+WARN  (EX1998) : Net 'wire_mem_src_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":278)
+WARN  (EX1998) : Net 'wire_mem_src_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":282)
+WARN  (EX1998) : Net 'wire_mem_src_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":284)
+WARN  (EX1998) : Net 'wire_mem_src_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":286)
+WARN  (EX1998) : Net 'wire_mem_key_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":309)
+WARN  (EX1998) : Net 'wire_mem_key_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":311)
+WARN  (EX1998) : Net 'wire_mem_key_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":313)
+WARN  (EX1998) : Net 'wire_mem_key_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":317)
+WARN  (EX1998) : Net 'wire_mem_key_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":319)
+WARN  (EX1998) : Net 'wire_mem_key_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":321)
+WARN  (EX1998) : Net 'wire_mem_cmd_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":344)
+WARN  (EX1998) : Net 'wire_mem_cmd_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":346)
+WARN  (EX1998) : Net 'wire_mem_cmd_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":348)
+WARN  (EX1998) : Net 'wire_mem_cmd_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":352)
+WARN  (EX1998) : Net 'wire_mem_cmd_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":354)
+WARN  (EX1998) : Net 'wire_mem_cmd_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":356)
+WARN  (EX1998) : Net 'wire_mem_dst_clkb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":380)
+WARN  (EX1998) : Net 'wire_mem_dst_oceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":382)
+WARN  (EX1998) : Net 'wire_mem_dst_ceb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":384)
+WARN  (EX1998) : Net 'wire_mem_dst_wreb' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":388)
+WARN  (EX1998) : Net 'wire_mem_dst_adb[13]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":390)
+WARN  (EX1998) : Net 'wire_mem_dst_dinb[7]' does not have a driver("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":392)
+NOTE  (EX0101) : Current top module is "top"
+[5%] Running netlist conversion ...
+WARN  (CV0016) : Input arduino_execute is unused("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":255)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\impl\gwsynthesis\arduino_io_ad_tang.vg" completed
+[100%] Generate report file "C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\impl\gwsynthesis\arduino_io_ad_tang_syn.rpt.html" completed
+GowinSynthesis finish

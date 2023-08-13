@@ -1,0 +1,60 @@
+[
+ {
+  "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_sp/gowin_sp.v",
+  "InstLine" : 10,
+  "InstName" : "Gowin_SP",
+  "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_sp/gowin_sp.v",
+  "ModuleLine" : 10,
+  "ModuleName" : "Gowin_SP"
+ },
+ {
+  "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+  "InstLine" : 246,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+  "ModuleLine" : 246,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "InstLine" : 286,
+    "InstName" : "blockmem_src",
+    "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_DPB"
+   },
+   {
+    "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "InstLine" : 321,
+    "InstName" : "blockmem_key",
+    "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_DPB"
+   },
+   {
+    "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "InstLine" : 356,
+    "InstName" : "blockmem_cmd",
+    "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_DPB"
+   },
+   {
+    "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "InstLine" : 392,
+    "InstName" : "blockmem_dst",
+    "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/gowin_dpb/gowin_dpb.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_DPB"
+   },
+   {
+    "InstFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "InstLine" : 415,
+    "InstName" : "myarduino_io_ad",
+    "ModuleFile" : "C:/Users/james/OneDrive/verilog/hardware_accel/arduino_io_ad/arduino_io_ad_tang/src/top.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "arduino_io_ad"
+   }
+  ]
+ }
+]
