@@ -3,18 +3,22 @@ Running parser ...
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v'
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_sp\gowin_sp.v'
 Analyzing Verilog file 'C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v'
-Compiling module 'top'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1086)
+Compiling module 'top'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1442)
 Compiling module 'Gowin_DPB'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_dpb\gowin_dpb.v":10)
 Compiling module 'Gowin_SP'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\gowin_sp\gowin_sp.v":10)
 Compiling module 'arduino_io_ad'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":9)
 Compiling module 'encryption_engine'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":237)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":438)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":495)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":594)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":746)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":856)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":958)
-WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1030)
+Extracting RAM for identifier 'lfsr_multi'("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":311)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":442)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":498)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":597)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":749)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":859)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":961)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1188)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1232)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1257)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Users\james\OneDrive\verilog\hardware_accel\arduino_io_ad\arduino_io_ad_tang\src\top.v":1386)
 NOTE  (EX0101) : Current top module is "top"
 [5%] Running netlist conversion ...
 Running device independent optimization ...

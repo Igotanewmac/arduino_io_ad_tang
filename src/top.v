@@ -306,7 +306,11 @@ module encryption_engine (
 
 
 
+    // lfsr registers
+    reg [15:0] lfsr_single;
+    reg [15:0] lfsr_multi [2:0];
 
+    
 
 
     // always and forever
@@ -429,7 +433,7 @@ module encryption_engine (
                             endcase
                         end
 
-                        // 0x20 set bank operations register to immediate value
+                        // 0x20 set bank select register to immediate value
                         8'h20 : begin
                             case (statemachine_command)
 
@@ -991,18 +995,371 @@ module encryption_engine (
 
 
 
-                        // memory bank register commands
-                        // 0x20 set bank to immediate value
-                        // 0x21 load address into bank
+                        // fun commands
 
-                        // memory bank commands
-                        // 0x22 fill bankA with immedeate value
-                        // 0x23 fill bankA byte 0x0000 to bankB
-                        // 0x24 copy bankA to bankB
+                        // 0x30 bankC = bankA ^ bankB
+                        8'h30 : begin
+                            case (statemachine_command)
+                                
+                                // initialise
+                                8'h00 : begin
+                                    reg_int_address_01 <= 14'd0;
+                                    // bank A
+                                    case (reg_bank_select[7:6])
+                                        2'b00 : begin
+                                            mem_src_ce <= 1'b1;
+                                            mem_src_oce <= 1'b1;
+                                        end
+                                        2'b01 : begin
+                                            mem_key_ce <= 1'b1;
+                                            mem_key_oce <= 1'b1;
+                                        end
+                                        2'b10 : begin
+                                            mem_cmd_ce <= 1'b1;
+                                            mem_cmd_oce <= 1'b1;
+                                        end
+                                        2'b11 : begin
+                                            mem_dst_ce <= 1'b1;
+                                            mem_dst_oce <= 1'b1;
+                                        end
+                                    endcase
+                                    // bank B
+                                    case (reg_bank_select[5:4])
+                                        2'b00 : begin
+                                            mem_src_ce <= 1'b1;
+                                            mem_src_oce <= 1'b1;
+                                        end
+                                        2'b01 : begin
+                                            mem_key_ce <= 1'b1;
+                                            mem_key_oce <= 1'b1;
+                                        end
+                                        2'b10 : begin
+                                            mem_cmd_ce <= 1'b1;
+                                            mem_cmd_oce <= 1'b1;
+                                        end
+                                        2'b11 : begin
+                                            mem_dst_ce <= 1'b1;
+                                            mem_dst_oce <= 1'b1;
+                                        end
+                                    endcase
+                                    // bank C
+                                    case (reg_bank_select[3:2])
+                                        2'b00 : begin
+                                            mem_src_ce <= 1'b1;
+                                            mem_src_wre <= 1'b1;
+                                        end
+                                        2'b01 : begin
+                                            mem_key_ce <= 1'b1;
+                                            mem_key_wre <= 1'b1;
+                                        end
+                                        2'b10 : begin
+                                            mem_cmd_ce <= 1'b1;
+                                            mem_cmd_wre <= 1'b1;
+                                        end
+                                        2'b11 : begin
+                                            mem_dst_ce <= 1'b1;
+                                            mem_dst_wre <= 1'b1;
+                                        end
+                                    endcase
+                                    statemachine_command <= 8'h01;
+                                end
+                                // set address to all banks
+                                8'h01 : begin
+                                    mem_src_ad <= reg_int_address_01;
+                                    mem_key_ad <= reg_int_address_01;
+                                    mem_cmd_ad <= reg_int_address_01;
+                                    mem_dst_ad <= reg_int_address_01;
+                                    statemachine_command <= 8'h02;
+                                end
+                                // clock up bank A and B
+                                8'h02 : begin
+                                    case (reg_bank_select[7:6])
+                                        2'b00 : mem_src_clk <= 1'b1;
+                                        2'b01 : mem_key_clk <= 1'b1;
+                                        2'b10 : mem_cmd_clk <= 1'b1;
+                                        2'b11 : mem_dst_clk <= 1'b1;
+                                    endcase
+                                    case (reg_bank_select[5:4])
+                                        2'b00 : mem_src_clk <= 1'b1;
+                                        2'b01 : mem_key_clk <= 1'b1;
+                                        2'b10 : mem_cmd_clk <= 1'b1;
+                                        2'b11 : mem_dst_clk <= 1'b1;
+                                    endcase
+                                    statemachine_command <= 8'h03;
+                                end
+                                // clock down
+                                8'h03 : begin
+                                    mem_src_clk <= 1'b0;
+                                    mem_key_clk <= 1'b0;
+                                    mem_cmd_clk <= 1'b0;
+                                    mem_dst_clk <= 1'b0;
+                                    statemachine_command <= 8'h04;
+                                end
+                                // perform encryption
+                                8'h04 : begin
+                                    case (reg_bank_select[7:2])
+                                        6'b000000 : mem_src_din <= mem_src_dout ^ mem_src_dout;
+                                        6'b000001 : mem_key_din <= mem_src_dout ^ mem_src_dout;
+                                        6'b000010 : mem_cmd_din <= mem_src_dout ^ mem_src_dout;
+                                        6'b000011 : mem_dst_din <= mem_src_dout ^ mem_src_dout;
+                                        6'b000100 : mem_src_din <= mem_src_dout ^ mem_key_dout;
+                                        6'b000101 : mem_key_din <= mem_src_dout ^ mem_key_dout;
+                                        6'b000110 : mem_cmd_din <= mem_src_dout ^ mem_key_dout;
+                                        6'b000111 : mem_dst_din <= mem_src_dout ^ mem_key_dout;
+                                        6'b001000 : mem_src_din <= mem_src_dout ^ mem_cmd_dout;
+                                        6'b001001 : mem_key_din <= mem_src_dout ^ mem_cmd_dout;
+                                        6'b001010 : mem_cmd_din <= mem_src_dout ^ mem_cmd_dout;
+                                        6'b001011 : mem_dst_din <= mem_src_dout ^ mem_cmd_dout;
+                                        6'b001100 : mem_src_din <= mem_src_dout ^ mem_dst_dout;
+                                        6'b001101 : mem_key_din <= mem_src_dout ^ mem_dst_dout;
+                                        6'b001110 : mem_cmd_din <= mem_src_dout ^ mem_dst_dout;
+                                        6'b001111 : mem_dst_din <= mem_src_dout ^ mem_dst_dout;
+                                        6'b010000 : mem_src_din <= mem_key_dout ^ mem_src_dout;
+                                        6'b010001 : mem_key_din <= mem_key_dout ^ mem_src_dout;
+                                        6'b010010 : mem_cmd_din <= mem_key_dout ^ mem_src_dout;
+                                        6'b010011 : mem_dst_din <= mem_key_dout ^ mem_src_dout;
+                                        6'b010100 : mem_src_din <= mem_key_dout ^ mem_key_dout;
+                                        6'b010101 : mem_key_din <= mem_key_dout ^ mem_key_dout;
+                                        6'b010110 : mem_cmd_din <= mem_key_dout ^ mem_key_dout;
+                                        6'b010111 : mem_dst_din <= mem_key_dout ^ mem_key_dout;
+                                        6'b011000 : mem_src_din <= mem_key_dout ^ mem_cmd_dout;
+                                        6'b011001 : mem_key_din <= mem_key_dout ^ mem_cmd_dout;
+                                        6'b011010 : mem_cmd_din <= mem_key_dout ^ mem_cmd_dout;
+                                        6'b011011 : mem_dst_din <= mem_key_dout ^ mem_cmd_dout;
+                                        6'b011100 : mem_src_din <= mem_key_dout ^ mem_dst_dout;
+                                        6'b011101 : mem_key_din <= mem_key_dout ^ mem_dst_dout;
+                                        6'b011110 : mem_cmd_din <= mem_key_dout ^ mem_dst_dout;
+                                        6'b011111 : mem_dst_din <= mem_key_dout ^ mem_dst_dout;
+                                        6'b100000 : mem_src_din <= mem_cmd_dout ^ mem_src_dout;
+                                        6'b100001 : mem_key_din <= mem_cmd_dout ^ mem_src_dout;
+                                        6'b100010 : mem_cmd_din <= mem_cmd_dout ^ mem_src_dout;
+                                        6'b100011 : mem_dst_din <= mem_cmd_dout ^ mem_src_dout;
+                                        6'b100100 : mem_src_din <= mem_cmd_dout ^ mem_key_dout;
+                                        6'b100101 : mem_key_din <= mem_cmd_dout ^ mem_key_dout;
+                                        6'b100110 : mem_cmd_din <= mem_cmd_dout ^ mem_key_dout;
+                                        6'b100111 : mem_dst_din <= mem_cmd_dout ^ mem_key_dout;
+                                        6'b101000 : mem_src_din <= mem_cmd_dout ^ mem_cmd_dout;
+                                        6'b101001 : mem_key_din <= mem_cmd_dout ^ mem_cmd_dout;
+                                        6'b101010 : mem_cmd_din <= mem_cmd_dout ^ mem_cmd_dout;
+                                        6'b101011 : mem_dst_din <= mem_cmd_dout ^ mem_cmd_dout;
+                                        6'b101100 : mem_src_din <= mem_cmd_dout ^ mem_dst_dout;
+                                        6'b101101 : mem_key_din <= mem_cmd_dout ^ mem_dst_dout;
+                                        6'b101110 : mem_cmd_din <= mem_cmd_dout ^ mem_dst_dout;
+                                        6'b101111 : mem_dst_din <= mem_cmd_dout ^ mem_dst_dout;
+                                        6'b110000 : mem_src_din <= mem_dst_dout ^ mem_src_dout;
+                                        6'b110001 : mem_key_din <= mem_dst_dout ^ mem_src_dout;
+                                        6'b110010 : mem_cmd_din <= mem_dst_dout ^ mem_src_dout;
+                                        6'b110011 : mem_dst_din <= mem_dst_dout ^ mem_src_dout;
+                                        6'b110100 : mem_src_din <= mem_dst_dout ^ mem_key_dout;
+                                        6'b110101 : mem_key_din <= mem_dst_dout ^ mem_key_dout;
+                                        6'b110110 : mem_cmd_din <= mem_dst_dout ^ mem_key_dout;
+                                        6'b110111 : mem_dst_din <= mem_dst_dout ^ mem_key_dout;
+                                        6'b111000 : mem_src_din <= mem_dst_dout ^ mem_cmd_dout;
+                                        6'b111001 : mem_key_din <= mem_dst_dout ^ mem_cmd_dout;
+                                        6'b111010 : mem_cmd_din <= mem_dst_dout ^ mem_cmd_dout;
+                                        6'b111011 : mem_dst_din <= mem_dst_dout ^ mem_cmd_dout;
+                                        6'b111100 : mem_src_din <= mem_dst_dout ^ mem_dst_dout;
+                                        6'b111101 : mem_key_din <= mem_dst_dout ^ mem_dst_dout;
+                                        6'b111110 : mem_cmd_din <= mem_dst_dout ^ mem_dst_dout;
+                                        6'b111111 : mem_dst_din <= mem_dst_dout ^ mem_dst_dout;
+                                    endcase
+                                    statemachine_command <= 8'h05;
+                                end
+                                // clock up bank C
+                                8'h05 : begin
+                                    case (reg_bank_select[3:2])
+                                        2'b00 : mem_src_clk <= 1'b1;
+                                        2'b01 : mem_key_clk <= 1'b1;
+                                        2'b10 : mem_cmd_clk <= 1'b1;
+                                        2'b11 : mem_dst_clk <= 1'b1;
+                                    endcase
+                                    statemachine_command <= 8'h06;
+                                end
+                                // clock down
+                                8'h06 : begin
+                                    mem_src_clk <= 1'b0;
+                                    mem_key_clk <= 1'b0;
+                                    mem_cmd_clk <= 1'b0;
+                                    mem_dst_clk <= 1'b0;
+                                    statemachine_command <= 8'h07;
+                                end
+                                // increment address register
+                                8'h07 : begin
+                                    reg_int_address_01 = reg_int_address_01 + 1;
+                                    statemachine_command <= 8'h08;
+                                end
+                                // check for loop
+                                8'h08 : begin
+                                    if ( reg_int_address_01 == 14'd0 ) statemachine_command <= 8'h09;
+                                    else statemachine_command <= 8'h01;
+                                end
+                                // finish up
+                                8'h09 : begin
+                                    mem_src_ce <= 1'b0;
+                                    mem_src_oce <= 1'b0;
+                                    mem_src_wre <= 1'b0;
+                                    mem_key_ce <= 1'b0;
+                                    mem_key_oce <= 1'b0;
+                                    mem_key_wre <= 1'b0;
+                                    mem_cmd_ce <= 1'b0;
+                                    mem_cmd_oce <= 1'b0;
+                                    mem_cmd_wre <= 1'b0;
+                                    mem_dst_ce <= 1'b0;
+                                    mem_dst_oce <= 1'b0;
+                                    mem_dst_wre <= 1'b0;
+                                    statemachine_program <= 8'hFE;
+                                end
+                                
 
-                        // ram commands
-                        // 0x25 copy bankA to ram
-                        // 0x26 copy ram to bankA
+
+
+                            endcase
+                        end
+
+
+                        // 0x31 set lfsr_single to immedeate
+                        8'h31 : begin
+                            case (statemachine_command)
+                                
+                                // initialise
+                                8'h00 : begin
+                                    mem_cmd_ce <= 1'b1;
+                                    mem_cmd_oce <= 1'b1;
+                                    statemachine_command <= 8'h01;
+                                end
+                                // increment program counter
+                                8'h01 : begin
+                                    reg_program_counter = reg_program_counter + 1;
+                                    statemachine_command <= 8'h02;
+                                end
+                                // set address to cmd
+                                8'h02 : begin
+                                    mem_cmd_ad <= reg_program_counter;
+                                    statemachine_command <= 8'h03;
+                                end
+                                // clock high
+                                8'h03 : begin
+                                    mem_cmd_clk <= 1'b1;
+                                    statemachine_command <= 8'h04;
+                                end
+                                // clock low
+                                8'h04 : begin
+                                    mem_cmd_clk <= 1'b0;
+                                    statemachine_command <= 8'h05;
+                                end
+                                // copy dout to lfsr
+                                8'h05 : begin
+                                    lfsr_single[15:8] <= mem_cmd_dout;
+                                    statemachine_command <= 8'h06;
+                                end
+                                // increment program counter
+                                8'h06 : begin
+                                    reg_program_counter <= reg_program_counter + 1;
+                                    statemachine_command <= 8'h07;
+                                end
+                                // set address to cmd
+                                8'h07 : begin
+                                    mem_cmd_ad <= reg_program_counter;
+                                    statemachine_command <= 8'h08;
+                                end
+                                // clock high
+                                8'h08 : begin
+                                    mem_cmd_clk <= 1'b1;
+                                    statemachine_command <= 8'h09;
+                                end
+                                // clock low
+                                8'h09 : begin
+                                    mem_cmd_clk <= 1'b0;
+                                    statemachine_command <= 8'h0A;
+                                end
+                                // copy dount to lfsr
+                                8'h0A : begin
+                                    lfsr_single[7:0] <= mem_cmd_dout;
+                                    statemachine_command <= 8'h0B;
+                                end
+                                // finish
+                                8'h0B : begin
+                                    mem_cmd_ce <= 1'b0;
+                                    mem_cmd_oce <= 1'b0;
+                                    statemachine_program <= 8'hFE;
+                                end
+                                
+                            endcase
+                        end
+
+
+                        // 0x32 set lfsr_single to address
+                        
+                        
+                        // 0x33 step lfsr_single
+                        8'h33 : begin
+                            case (statemachine_command)
+                                8'h00 : begin
+                                    lfsr_single[15:1] <= lfsr_single[14:0];
+                                    statemachine_command <= 8'h01;
+                                end
+                                8'h01 : begin
+                                    lfsr_single[0] <= (((lfsr_single[15]^lfsr_single[13])^lfsr_single[12])^lfsr_single[10]);
+                                    statemachine_program <= 8'hFE;
+                                end
+                            endcase
+                        end
+
+
+                        // 0x34 copy lfsr_single to dst 0x0000
+                        8'h34 : begin
+                            case (statemachine_command)
+
+                                // initialise
+                                8'h00 : begin
+                                    mem_dst_ce <= 1'b1;
+                                    mem_dst_wre <= 1'b1;
+                                    statemachine_command <= 8'h01;
+                                end
+                                // set address and data to dst
+                                8'h01 : begin
+                                    mem_dst_ad <= 14'd0;
+                                    mem_dst_din <= lfsr_single[15:8];
+                                    statemachine_command <= 8'h02;
+                                end
+                                // clock high
+                                8'h02 : begin
+                                    mem_dst_clk <= 1'b1;
+                                    statemachine_command <= 8'h03;
+                                end
+                                // clock low
+                                8'h03 : begin
+                                    mem_dst_clk <= 1'b0;
+                                    statemachine_command <= 8'h04;
+                                end
+                                // set address and data to dst
+                                8'h04 : begin
+                                    mem_dst_ad <= 14'd1;
+                                    mem_dst_din <= lfsr_single[7:0];
+                                    statemachine_command <= 8'h05;
+                                end
+                                // clock high
+                                8'h05 : begin
+                                    mem_dst_clk <= 1'b1;
+                                    statemachine_command <= 8'h06;
+                                end
+                                // clock low
+                                8'h06 : begin
+                                    mem_dst_clk <= 1'b0;
+                                    statemachine_command <= 8'h07;
+                                end
+                                // finish
+                                8'h07 : begin
+                                    mem_dst_ce <= 1'b0;
+                                    mem_dst_wre <= 1'b0;
+                                    statemachine_program <= 8'hFE;
+                                end
+                                
+                            endcase
+                        end
+
+
+
 
 
 

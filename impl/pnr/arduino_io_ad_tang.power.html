@@ -87,7 +87,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Aug 13 15:19:30 2023
+<td>Sun Aug 13 18:06:37 2023
 </td>
 </tr>
 <tr>
@@ -100,7 +100,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Total Power (mW)</td>
-<td>399.382</td>
+<td>399.729</td>
 </tr>
 <tr>
 <td class="label">Quiescent Power (mW)</td>
@@ -108,14 +108,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Dynamic Power (mW)</td>
-<td>237.708</td>
+<td>238.055</td>
 </tr>
 </table>
 <h2><a name="Thermal_Info">Thermal Information:</a></h2>
 <table class="summary_table">
 <tr>
 <td class="label">Junction Temperature</td>
-<td>33.567</td>
+<td>33.574</td>
 </tr>
 <tr>
 <td class="label">Theta JA</td>
@@ -123,7 +123,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Max Allowed Ambient Temperature</td>
-<td>76.433</td>
+<td>76.426</td>
 </tr>
 </table>
 <h2><a name="Configure_Info">Configure Information:</a></h2>
@@ -192,9 +192,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>VCC</td>
 <td>1.000</td>
-<td>231.082</td>
+<td>231.429</td>
 <td>102.278</td>
-<td>333.360</td>
+<td>333.707</td>
 </tr>
 <tr>
 <td>VCCX</td>
@@ -229,9 +229,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>Logic</td>
-<td>0.807</td>
+<td>1.168</td>
 <td>NA</td>
-<td>13.340</td>
+<td>13.101</td>
 </tr>
 <tr>
 <td>IO</td>
@@ -255,8 +255,8 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>top</td>
-<td>229.165</td>
-<td>229.165(229.165)</td>
+<td>229.526</td>
+<td>229.526(229.526)</td>
 <tr>
 <td>top/blockmem_cmd/</td>
 <td>54.894</td>
@@ -279,12 +279,12 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>54.894(0.000)</td>
 <tr>
 <td>top/my_encryption_engine/</td>
-<td>0.590</td>
-<td>0.590(0.000)</td>
+<td>0.950</td>
+<td>0.950(0.000)</td>
 <tr>
 <td>top/myarduino_io_ad/</td>
-<td>0.217</td>
-<td>0.217(0.000)</td>
+<td>0.218</td>
+<td>0.218(0.000)</td>
 </table>
 <h2><a name="By_Clock_Domain">Power By Clock Domain:</a></h2>
 <table class="detail_table">
@@ -296,15 +296,20 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>sysclk</td>
 <td>100.000</td>
-<td>0.678</td>
+<td>0.940</td>
 </tr>
 <tr>
-<td>wire_mem_src_clkb</td>
+<td>arduino_clock</td>
 <td>100.000</td>
-<td>27.494</td>
+<td>0.081</td>
 </tr>
 <tr>
-<td>wire_mem_cmd_clkb</td>
+<td>wire_mem_ram_clk</td>
+<td>100.000</td>
+<td>8.812</td>
+</tr>
+<tr>
+<td>wire_mem_src_clka</td>
 <td>100.000</td>
 <td>27.486</td>
 </tr>
@@ -314,39 +319,34 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>27.486</td>
 </tr>
 <tr>
-<td>wire_mem_src_clka</td>
+<td>wire_mem_src_clkb</td>
 <td>100.000</td>
-<td>27.486</td>
+<td>27.523</td>
 </tr>
 <tr>
-<td>wire_mem_key_clkb</td>
+<td>wire_mem_cmd_clkb</td>
 <td>100.000</td>
-<td>27.479</td>
+<td>27.536</td>
 </tr>
 <tr>
 <td>wire_mem_dst_clkb</td>
 <td>100.000</td>
-<td>27.479</td>
+<td>27.485</td>
 </tr>
 <tr>
-<td>arduino_clock</td>
+<td>wire_mem_key_clkb</td>
 <td>100.000</td>
-<td>0.082</td>
-</tr>
-<tr>
-<td>wire_mem_ram_clk</td>
-<td>100.000</td>
-<td>8.818</td>
-</tr>
-<tr>
-<td>wire_mem_dst_clka</td>
-<td>100.000</td>
-<td>27.478</td>
+<td>27.494</td>
 </tr>
 <tr>
 <td>wire_mem_key_clka</td>
 <td>100.000</td>
 <td>27.478</td>
+</tr>
+<tr>
+<td>wire_mem_dst_clka</td>
+<td>100.000</td>
+<td>27.471</td>
 </tr>
 </table>
 </div><!-- content -->
